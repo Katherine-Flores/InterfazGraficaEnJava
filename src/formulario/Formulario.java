@@ -17,7 +17,7 @@ public class Formulario extends JFrame implements ActionListener{
      */
     
     //Declarar los componentes
-    private JLabel label1, label2, label3, label4, label5, label6;
+    private JLabel label1, label2, label3, label4, label5, label6, label7;
     private JTextField textField;
     private JPasswordField password;
     private JRadioButton radio1, radio2;
@@ -27,7 +27,7 @@ public class Formulario extends JFrame implements ActionListener{
     private JScrollPane scrollPane;
     private JCheckBox check;
     private JButton boton1, boton2;
-    private Color habilitado = new Color(184,231,225);
+    private Color habilitado = new Color(25, 167, 206);
     
     //Constructor donde se da diseño a todos los componentes
     public Formulario(){
@@ -38,6 +38,74 @@ public class Formulario extends JFrame implements ActionListener{
         add(boton1);
         boton1.addActionListener(this);
         boton1.setBackground(habilitado);
+        
+        label1 = new JLabel("FORMULARIO");
+        label1.setBounds(350,10,100,30);
+        add(label1);
+        
+        label2 = new JLabel("Usuario");
+        label2.setBounds(25,50,50,30);
+        add(label2);
+        
+        label3 = new JLabel("Clave");
+        label3.setBounds(25,100,50,30);
+        add(label3);
+        
+        label4 = new JLabel("Tipo de Usuario");
+        label4.setBounds(25,150,100,30);
+        add(label4);
+        
+        label5 = new JLabel("Cursos");
+        label5.setBounds(25,200,50,30);
+        add(label5);
+        
+        label6 = new JLabel("Comentarios");
+        label6.setBounds(25,250,100,30);
+        add(label6);
+        
+        label7 = new JLabel("Acepta los Terminos y Condiciones");
+        label7.setBounds(25,450,200,30);
+        add(label7);
+        
+        textField = new JTextField();
+        textField.setBounds(150,50,400,30);
+        add(textField);
+        
+        password = new JPasswordField();
+        password.setBounds(150,100,400,30);
+        add(password);
+        
+        bg = new ButtonGroup();
+        radio1 = new JRadioButton("Estudiante");
+        radio1.setBounds(150,150,100,30);
+        add(radio1);
+        bg.add(radio1);
+        radio2 = new JRadioButton("Catedratico");
+        radio2.setBounds(300,150,100,30);
+        add(radio2);
+        bg.add(radio2);
+        
+        combo = new JComboBox();
+        combo.setBounds(150,200,250,30);
+        add(combo);
+        combo.addItem("Calculo");
+        combo.addItem("Programacion I");
+        combo.addItem("Derecho Informatico");
+        combo.addItem("Fisica I");
+        combo.addItem("Proceso Administrativo");
+        
+        textArea = new JTextArea();
+        scrollPane = new JScrollPane(textArea);
+        scrollPane.setBounds(25,300,700,100);
+        add(scrollPane);
+        
+        check = new JCheckBox("Acepto");
+        check.setBounds(250,450,100,30);
+        add(check);
+        
+        boton2 = new JButton("Enviar");
+        boton2.setBounds(25,500,100,30);
+        add(boton2);
     }
     
     //Evento al presionar un boton
@@ -54,5 +122,4 @@ public class Formulario extends JFrame implements ActionListener{
         frame.setVisible(true);
         frame.setResizable(false);
     }
-    
 }
