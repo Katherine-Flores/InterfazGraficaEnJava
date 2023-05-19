@@ -10,7 +10,7 @@ import javax.swing.event.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class Formulario extends JFrame implements ActionListener{
+public class Formulario extends JFrame implements ActionListener, ChangeListener{
 
     /**
      * @param args the command line arguments
@@ -28,6 +28,7 @@ public class Formulario extends JFrame implements ActionListener{
     private JCheckBox check;
     private JButton boton1, boton2;
     private Color habilitado = new Color(25, 167, 206);
+    private Color deshabilitado = new Color(176, 218, 255);
     
     //Constructor donde se da diseño a todos los componentes
     public Formulario(){
@@ -102,16 +103,30 @@ public class Formulario extends JFrame implements ActionListener{
         check = new JCheckBox("Acepto");
         check.setBounds(250,450,100,30);
         add(check);
+        check.addChangeListener(this);
         
         boton2 = new JButton("Enviar");
         boton2.setBounds(25,500,100,30);
         add(boton2);
+        boton2.setBackground(deshabilitado);
+        boton2.addActionListener(this);
+        boton2.setEnabled(false);
     }
     
     //Evento al presionar un boton
     public void actionPerformed(ActionEvent e){
         if(e.getSource() == boton1){
             System.exit(0);
+        }
+    }
+    
+    public void stateChanged(ChangeEvent e){
+        if(check.isSelected() == true){
+            boton2.setEnabled(true);
+            boton2.setBackground(habilitado);
+        }else{
+            boton2.setEnabled(false);
+            boton2.setBackground(deshabilitado);
         }
     }
     
