@@ -118,8 +118,12 @@ public class Formulario extends JFrame implements ActionListener, ChangeListener
         if(e.getSource() == boton1){
             System.exit(0);
         }
+        if(e.getSource() == boton2){
+            setTitle("Formulario enviado exitosamente");
+        }
     }
     
+    //Evento al marcar el checkBox
     public void stateChanged(ChangeEvent e){
         if(check.isSelected() == true){
             boton2.setEnabled(true);
